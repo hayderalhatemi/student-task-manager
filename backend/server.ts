@@ -1,3 +1,4 @@
+import taskRoutes from './routes/taskRoutes'
 import connectDB from './config/db'
 import express, { Request, Response } from 'express'
 import cors from 'cors'
@@ -11,6 +12,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use('/app/tasks', taskRoutes)
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Student Task Manager API is running')
