@@ -12,7 +12,7 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use('/app/tasks', taskRoutes)
+app.use('/api/tasks', taskRoutes)
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Student Task Manager API is running')
