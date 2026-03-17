@@ -1,4 +1,4 @@
-import taskRoutes from './routes/taskRoutes'
+import taskRoutes from "./routes/taskRoutes"
 import connectDB from './config/db'
 import express, { Request, Response } from 'express'
 import cors from 'cors'
