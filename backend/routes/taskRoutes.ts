@@ -35,7 +35,7 @@ router.put("/:id", async (req: Request, res: Response) => {
     const updatedTask = await Task.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { returnDocument: 'after' }
+      { new: true }
     )
 
     res.json(updatedTask)
@@ -43,5 +43,17 @@ router.put("/:id", async (req: Request, res: Response) => {
     res.status(500).json({ message: "Failed to update task" })
   }
 })
+
+router.delete('/:id', async (req: Request, res: Response) => {
+  try {
+    const deletedTask = await Task.findByIdAndDelete(req.params.id);
+    if (!deletedTask) {
+      return res.status(404).json({ message: 'Task not found' });
+    }
+    res.json({message: 'Task deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to delete task' })
+  }
+});
 
 export default router
