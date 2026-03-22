@@ -12,6 +12,15 @@ router.get("/", async (req: Request, res: Response) => {
   }
 })
 
+router.get('/', async (req:Request, res: Response) => {
+  try {
+    const tasks = await Task.find();
+    res.json(tasks);
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to fetch tasks '});
+  }
+});
+
 router.post("/", async (req: Request, res: Response) => {
   try {
     const { title, description, status, dueDate } = req.body
