@@ -44,7 +44,17 @@ function App() {
       <input placeholder='Description' value={description} onChange={e => setDescription(e.target.value)} />
       <button onClick={handleCreate}>Add Task</button>
       </div>
-      
+
+      <ul>
+        {tasks.map(task => (
+          <li key={task._id}>
+            <strong>{task.title}</strong> - {task.status}
+            <button onClick={() => handleDelete(task._id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
+
+export default App
