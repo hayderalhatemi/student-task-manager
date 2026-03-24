@@ -43,6 +43,26 @@ function App() {
     fetchTasks()
   }
 
+  //select task and populate edit from
+const handleEditClick = (task: Task) => {
+  setEditingTask(task)
+  setEditTitle(task.title)
+  setEditDescription(task.description)
+  setEditStatus(task.status)
+}
+
+//send the update task to the backend
+const handleUpdate = async () => {
+  if (!editingTask) return
+  await updateTask(editingTask._id, {
+    title: editTitle,
+    description: editDescription,
+    status: editStatus
+  })
+  setEditingTask(null) //colse the edit from
+  fetchTasks() // refresh the list
+}
+
   return (
     <div style={{ padding: '2rem' }}>
       <h1>Student Task Manager</h1>
