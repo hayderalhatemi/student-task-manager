@@ -30,5 +30,21 @@ function App() {
     setDescription('')
     fetchTasks()
   }
-  const handleDelete = 
+  const handleDelete = async (id: string) => {
+    await deleteTask(id)
+    fetchTasks()
+  }
+
+  return (
+    <div style={{ padding: '2rem' }}>
+      <h1>Student Task Manager</h1>
+
+      <div>
+      <input placeholder='Title' value={title} onChange={e => setTitle(e.target.value)} />
+      <input placeholder='Description' value={description} onChange={e => setDescription(e.target.value)} />
+      <button onClick={handleCreate}>Add Task</button>
+      </div>
+      
+    </div>
+  )
 }
