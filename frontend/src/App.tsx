@@ -73,6 +73,21 @@ const handleUpdate = async () => {
       <button onClick={handleCreate}>Add Task</button>
       </div>
 
+    {/*Edit form - shows only when editing*/}
+    {editingTask && (
+      <div>
+        <h3>Editing: {editingTask.title}</h3>
+        <input value={editTitle} onChange={e => setEditTitle(e.target.value)} />
+        <input value={editDescription} onChange={e => setEditDescription(e.target.value)} />
+        <select value={editStatus} onChange={e => setEditStatus(e.target.value)}>
+          <option value="pending">Pending</option>
+          <option value="completed">Completed</option>
+        </select>
+        <button onClick={handleUpdate}>Save</button>
+        <button onClick={() => setEditingTask(null)}>Cancel</button>
+      </div>
+    )}
+
       <ul>
         {tasks.map(task => (
           <li key={task._id}>
