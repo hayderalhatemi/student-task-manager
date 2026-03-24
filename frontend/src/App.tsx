@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getTasks, createTask, deleteTask } from './api'
+import { getTasks, createTask, deleteTask, updateTask } from './api'
 
 interface Task {
   _id: string
@@ -13,6 +13,14 @@ function App() {
   const [tasks, setTasks] = useState<Task[]>([])
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+
+  //which task is being edited
+  const [editingTask, setEditingTask] = useState<Task | null>(null)
+
+  //edit form values
+  const [editTitle, setEditTitle] = useState('')
+  const [editDescription, setEditDescription] = useState('')
+  const [editStatus, setEditStatus] = useState('')
 
   const fetchTasks = async () => {
     const res = await getTasks()
