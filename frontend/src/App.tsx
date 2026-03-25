@@ -71,7 +71,6 @@ function App() {
 
   return (
     <div className='container'>
-    <div style={{ padding: '2rem' }}>
       <h1>Student Task Manager</h1>
 
       <div className='add-form'>
@@ -116,7 +115,6 @@ function App() {
           </li>
         ))}
       </ul>
-    </div>
     </div>
   )
 }
