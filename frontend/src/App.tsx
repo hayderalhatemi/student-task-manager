@@ -71,7 +71,7 @@ function App() {
 
   return (
     <div className='container'>
-      <h1>Student Task Manager</h1>
+      <h1>Task Manager</h1>
 
       <div className='add-form'>
         <input placeholder='Title' value={title} onChange={e => setTitle(e.target.value)} />
