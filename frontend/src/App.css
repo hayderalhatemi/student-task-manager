@@ -25,9 +25,9 @@ h1 {
 }
 
 /*Add task form*/
-.add-form input {
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  flex: 1;
+.add-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
